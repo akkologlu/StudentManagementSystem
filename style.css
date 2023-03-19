@@ -1,0 +1,396 @@
+/* The section that takes up the whole page */
+body {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #0c0d293f;
+}
+
+/* header section */
+#header {
+  display: flex;
+  width: 67%;
+}
+
+/* Section with MSKU logo */
+#mskuLogo {
+  margin-left: 5%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* MSKU logo */
+#mskuLogo img {
+  width: 30%;
+}
+
+/* Division with the text in the header*/
+#welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 5;
+}
+
+/* text in header */
+#header p {
+  font-size: x-large;
+  text-align: center;
+}
+
+/* Logos on the right side of the header */
+#headerLogos {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+/* Home Logo */
+#homeLogo {
+  flex: 1;
+}
+
+/* Notification Logo */
+#notificationLogo {
+  flex: 1;
+}
+
+/* User Logo */
+#userLogo {
+  flex: 1;
+}
+
+/* The background of the forms and some sections appearing on the screen*/
+.form {
+  background-color: #15172b;
+  border-radius: 24px;
+  box-sizing: content-box;
+  height: auto;
+  padding: 20px;
+  width: 30%;
+  margin: 0.5%;
+  min-width: 300px;
+}
+
+/* h1 tag headers */
+h1 {
+  color: #eee;
+  font-family: sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* p tag texts */
+p {
+  color: #eee;
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+/* Container for each input */
+.input_container {
+  height: 50px;
+  position: relative;
+  width: 100%;
+  margin-top: 12%;
+}
+
+/* Style of all inputs */
+.input {
+  background-color: #303245;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  font-size: 18px;
+  height: 100%;
+  outline: 0;
+  padding: 4px 20px 0;
+  width: 100%;
+}
+
+/* Placeholders appearing inside inputs */
+.placeholder {
+  color: #b2b2b8;
+  font-family: sans-serif;
+  left: 20px;
+  line-height: 14px;
+  position: absolute;
+  transform-origin: 0 50%;
+  transition: transform 200ms;
+  top: 20px;
+}
+
+/* Relocation of placeholder after user type something */
+.input:not(:placeholder-shown)~.placeholder {
+  transform: translateY(-40px) translateX(10px) scale(0.75);
+}
+
+/* All buttons that appear on the main screen */
+.submit {
+  background-color: #08d;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  cursor: pointer;
+  font-size: 18px;
+  height: 50px;
+  margin-top: 38px;
+  text-align: center;
+  width: 100%;
+}
+
+/* The color changes when the button is clicked */
+.submit:active {
+  background-color: #06b;
+}
+
+/* Buttons on the table(delete, edit scores, save) */
+.tableButtons {
+  background-color: #08d;
+  margin-top: 0%;
+  height: auto;
+  outline: 0;
+  text-align: center;
+  width: auto;
+}
+
+/* Style for dropdown menus */
+.dropdown {
+  background-color: #303245;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  font-size: 18px;
+  height: 50px;
+  outline: 0;
+  padding: 4px 20px 0;
+  width: 100%;
+}
+
+/* Add Course form, Add Student form LMS Logo and Register form */
+#addingAndRegister {
+  display: flex;
+  width: 70%;
+  flex-wrap: wrap;
+}
+
+/* Add Course form */
+#lectureFormDiv {
+  flex: 1;
+}
+
+/* Add Student form LMS Logo */
+#LMSandStdForm {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* LMS logo */
+#LMSimg {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+/* All images */
+img {
+  width: 75%;
+}
+
+/* Student form */
+#studentFormDiv {
+  flex: 1;
+  width: auto;
+  height: auto;
+}
+
+/* Register form */
+#registerDiv {
+  flex: 1;
+}
+
+/* Course display selection and table  */
+#displayContainer {
+  display: flex;
+  width: 70%;
+  flex-wrap: wrap;
+}
+
+/* Course display selection form */
+#displayDiv {
+  flex: 1;
+}
+
+/* Course table section */
+#tableContainer {
+  flex: 2.2;
+  overflow-x: auto;
+}
+
+/* Student Informations and table  */
+#studentContainer {
+  display: flex;
+  width: 70%;
+  flex-wrap: wrap;
+}
+
+/* Student Selection section */
+#studentInfoDiv {
+  flex: 1
+}
+
+/* Student Informations and table */
+#studentInfoTable {
+  flex: 2.2;
+  overflow-x: auto;
+}
+
+/* Delete Course, Delete Student */
+#deleteDiv {
+  display: flex;
+  width: 70%;
+  flex-wrap: wrap;
+}
+
+/* Delete Student form */
+#deleteStd {
+  flex: 1
+}
+
+/* Delete Course form */
+#deleteLctr {
+  flex: 1
+}
+
+/* Update course, update student and logos */
+#updateDiv {
+  display: flex;
+  width: 70%;
+  flex-wrap: wrap;
+}
+
+/* Update course form */
+#updateLectureDiv {
+  flex: 1
+}
+
+/* Update student and logos */
+#updateStdAndLogos {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 70%;
+}
+
+/* Update student seciton */
+#updateStudentDiv {
+  width: auto;
+  height: auto;
+  flex: 2;
+}
+
+/* Logos at the bottom of the student form  */
+#bottomLogos {
+  display: flex;
+}
+
+/* Logos on the left (EUA and Observatory) */
+#bottomLogosLeft {
+  padding-top: 7%;
+  padding-left: 10%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: auto;
+  height: auto;
+}
+
+#bottomLogosLeft img {
+  width: 90%;
+}
+
+/* Logo on the right(MSKU) */
+#bottomLogosRight {
+  padding-top: 3%;
+  flex: 1;
+  display: flex;
+}
+
+#bottomLogosRight img {
+  width: 50%;
+  padding-left: 30%;
+}
+
+/* Tables in the system */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  color: #eee;
+  font-family: sans-serif;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Color changes when hovering over the table */
+tr:hover {
+  background-color: #06b;
+}
+
+/* Sections with details class (student Informations, "details" section of courses) */
+.details {
+  color: #eee;
+  font-family: sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+/* Footer section */
+#footer {
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+/* Articles in the footer*/
+#footer p {
+  margin-left: 10%;
+}
+
+/* Parts inside the footer */
+.footerDivs {
+  border-radius: 24px;
+  flex: 1;
+  margin: 2%;
+  background-color: #15172b;
+  box-sizing: content-box;
+  height: auto;
+  padding: 20px;
+  width: auto;
+  margin: 0.5%;
+}
+
+/* Headers inside the footer */
+#footer h1 {
+  text-align: start;
+  margin-left: 9%;
+}

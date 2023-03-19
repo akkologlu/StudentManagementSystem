@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LMS</title>
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <!--The header part that appears at the top of the page-->
+  <div id="header" class="form">
+    <div id="mskuLogo">
+      <img src="https://r.resimlink.com/nQSfJgstTXv.png" alt="">
+    </div>
+    <div id="welcome">
+      <h1>WELCOME TO LEARNING MANAGEMENT SYSTEM</h1>
+      <p style="font-size: 10px;">This site has no design concerns. Made for javascript only.</p>
+    </div>
+    <div id="headerLogos">
+      <div id="homeLogo">
+        <img src="https://r.resimlink.com/0y6uc4.png" alt="" style="width: 60%;">
+      </div>
+      <div id="notificationLogo">
+        <img src="https://r.resimlink.com/I2v6JeW_7Nq.png" alt="" style="width: 60%;">
+      </div>
+      <div id="userLogo">
+        <img src="https://r.resimlink.com/_jQS45fgs9Mw.png" alt="" style="width: 60%;">
+      </div>
+    </div>
+  </div>
+  <!--The part with the course add form, student add form, LMS logo and registration form-->
+  <div id="addingAndRegister">
+    <!--Course adding form-->
+    <div id="lectureFormDiv" class="form">
+      <form method="GET" onsubmit="return false;" id="lectureForm">
+        <h1>Add Course</h1>
+        <div class="input_container">
+          <input id="coursecode" type="text" placeholder=" " class="input" />
+          <label for="coursecode" class="placeholder">Course Code</label>
+        </div>
+        <div class="input_container">
+          <input id="coursename" type="text" placeholder=" " class="input">
+          <label for="coursename" class="placeholder">Course Name</label>
+        </div>
+        <div class="input_container">
+          <input id="teacher" type="text" placeholder=" " class="input">
+          <label for="teacher" class="placeholder">Instructor Name</label>
+        </div>
+        <div class="input_container">
+          <select name="pointScale" id="pointScale" class="dropdown">
+            <option value=7>7</option>
+            <option value=10>10</option>
+          </select>
+        </div>
+        <button onclick="addLecture()" class="submit">Add</button>
+      </form>
+    </div>
+    <!--Student adding form and LMS logo-->
+    <div id="LMSandStdForm">
+      <div id="LMSimg">
+        <img src="https://r.resimlink.com/rmFzVy.png" alt="">
+      </div>
+      <div id="studentFormDiv" class="form">
+        <form method="GET" onsubmit="return false;" id="lectureForm">
+          <h1>Add Student</h1>
+          <div class="input_container">
+            <input id="studentid" type="text" placeholder=" " class="input">
+            <label for="studentid" class="placeholder">ID</label>
+          </div>
+          <div class="input_container">
+            <input id="studentname" type="text" placeholder=" " class="input">
+            <label for="studentname" class="placeholder">Name</label>
+          </div>
+
+          <button onclick="addStudent()" class="submit">Add</button>
+        </form>
+      </div>
+    </div>
+    <!--Registiration form-->
+    <div id="registerDiv" class="form">
+      <form method="GET" onsubmit="return false;" id="registerForm">
+        <h1>Register</h1>
+        <div class="input_container">
+          <select name="lectureOptions" id="lectureOptions" class="dropdown">
+            <option value="" disabled selected>Select a Course</option>
+          </select>
+        </div>
+        <div class="input_container">
+          <select name="studentOptions" id="studentOptions" class="dropdown">
+            <option value="" disabled selected>Select a Student</option>
+          </select>
+        </div>
+        <div class="input_container">
+          <input id="midterm" type="number" placeholder=" " min="0" max="100" class="input">
+          <label for="midterm" class="placeholder">Midterm Score</label>
+        </div>
+        <div class="input_container">
+          <input id="final" type="number" placeholder=" " min="0" max="100" class="input">
+          <label for="final" class="placeholder">Final Score</label>
+        </div>
+        <button onclick="register()" class="submit">Register</button>
+      </form>
+    </div>
+  </div>
+  <!--View course information and tables-->
+  <div id="displayContainer">
+    <div id="displayDiv" class="form">
+      <form method="GET" onsubmit="return false;" id="displayForm">
+        <h1>Course Informations</h1>
+        <div class="input_container">
+          <select name="displayLectureOptions" id="displayLectureOptions" class="dropdown">
+            <option value="" disabled selected>Select a Course</option>
+          </select>
+        </div>
+        <div class="input_container">
+          <select name="tableType" id="tableType" class="dropdown">
+            <option value="" disabled selected>Select Table Type</option>
+            <option value="All">All students</option>
+            <option value="Fail">Fail students</option>
+            <option value="Pass">Pass students</option>
+            <option value="Details">Details</option>
+          </select>
+        </div>
+        <button onclick="displayTable()" class="submit">Display</button>
+      </form>
+
+    </div>
+    <div id="tableContainer" class="form"></div>
+  </div>
+  <!--View student information and tables-->
+  <div id="studentContainer">
+    <div id="studentInfoDiv" class="form">
+      <form method="GET" onsubmit="return false;" id="studentInfoForm">
+        <h1>Student Informations</h1>
+        <div class="input_container">
+          <input id="studentInfo" type="text" placeholder=" " class="input">
+          <label for="studentInfo" class="placeholder">Student Name</label>
+        </div>
+        <button onclick="displayStudentInfo()" class="submit">Display</button>
+      </form>
+    </div>
+    <div id="studentInfoTable" class="form"></div>
+  </div>
+  <!--Section for deletions-->
+  <div id="deleteDiv">
+    <!--Student deletion section-->
+    <div id="deleteStd" class="form">
+      <form method="GET" onsubmit="return false;" id="deleteStudentForm">
+        <h1>Delete Student</h1>
+        <div class="input_container">
+          <input id="deleteStudent" type="text" placeholder=" " class="input">
+          <label for="deleteStudent" class="placeholder">Student ID</label>
+        </div>
+        <button onclick="deleteStdnt()" class="submit">Delete</button>
+      </form>
+    </div>
+    <!--Course deletion section-->
+    <div id="deleteLctr" class="form">
+      <form method="GET" onsubmit="return false;" id="deleteLectureForm">
+        <h1>Delete Course</h1>
+        <div class="input_container">
+          <input id="deleteLecture" type="text" placeholder=" " class="input">
+          <label for="deleteLecture" class="placeholder">Course Code</label>
+        </div>
+        <button onclick="deleteLcture()" class="submit">Delete</button>
+      </form>
+    </div>
+  </div>
+  <!--Section for updates-->
+  <div id="updateDiv">
+    <!--Section for course information updates-->
+    <div id="updateLectureDiv" class="form">
+      <form method="GET" onsubmit="return false;" id="updateLectureForm">
+        <h1 style="margin-bottom:8%">Update Course</h1>
+        <select name="lectureOptionsforUpdate" id="lectureOptionsforUpdate" class="dropdown">
+          <option value="" disabled selected>Select a Course</option>
+        </select>
+        <div class="input_container">
+          <input id="coursecodeUpdate" type="text" placeholder=" " class="input" />
+          <label for="coursecodeUpdate" class="placeholder">Course Code</label>
+        </div>
+        <div class="input_container">
+          <input id="coursenameUpdate" type="text" placeholder=" " class="input">
+          <label for="coursenameUpdate" class="placeholder">Course Name</label>
+        </div>
+        <div class="input_container">
+          <input id="teacherUpdate" type="text" placeholder=" " class="input">
+          <label for="teacherUpdate" class="placeholder">Instructor Name</label>
+        </div>
+        <div class="input_container">
+          <select name="pointScale" id="pointScaleUpdate" class="dropdown">
+            <option value=7>7</option>
+            <option value=10>10</option>
+          </select>
+        </div>
+        <button onclick="updateCourse()" class="submit">Update</button>
+      </form>
+    </div>
+    <!--The section with the student update and the logos below-->
+    <div id="updateStdAndLogos">
+      <div id="updateStudentDiv" class="form">
+        <form method="GET" onsubmit="return false;" id="updateStudentForm">
+          <h1 style="margin-bottom:8%">Update Student</h1>
+          <select name="studentOptionsforUpdate" id="studentOptionsforUpdate" class="dropdown">
+            <option value="" disabled selected>Select a Student</option>
+          </select>
+          <div class="input_container">
+            <input id="studentIdUpdate" type="text" placeholder=" " class="input" />
+            <label for="studentIdUpdate" class="placeholder">ID</label>
+          </div>
+          <div class="input_container">
+            <input id="studentNameUpdate" type="text" placeholder=" " class="input">
+            <label for="studentNameUpdate" class="placeholder">Name</label>
+          </div>
+          <button onclick="updateStudent()" class="submit">Update</button>
+        </form>
+      </div>
+      <!--Logos under Student update-->
+      <div id="bottomLogos">
+        <div id="bottomLogosLeft">
+          <div id="eualogo">
+            <img src="https://r.resimlink.com/Srncq-CaPbs.png" alt="">
+          </div>
+          <div id="mcologo">
+            <img src="https://r.resimlink.com/vYrjl0DaOhp_.png" alt="">
+          </div>
+        </div>
+        <div id="bottomLogosRight">
+          <img src="https://r.resimlink.com/nQSfJgstTXv.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Footer section-->
+  <div id="footer">
+    <div class="footerDivs">
+      <h1>General Information</h1>
+      <p>From Our Rector</p>
+      <p>Sıtkı Koçman Foundation</p>
+      <p>Legislation</p>
+      <p>History</p>
+      <p>Settlement Plan</p>
+      <p>Photo Gallery</p>
+    </div>
+    <div class="footerDivs">
+      <h1>Academic</h1>
+      <p>Institutes</p>
+      <p>Sıtkı Koçman Foundation</p>
+      <p>Faculties</p>
+      <p>Colleges</p>
+      <p>Vocational Schools</p>
+    </div>
+    <div class="footerDivs">
+      <h1>Student</h1>
+      <p>Academic Calendar</p>
+      <p>Sıtkı Koçman Foundation</p>
+      <p>Scholarships</p>
+      <p>Part Time Student</p>
+      <p>Student Societies</p>
+      <p>Student Council</p>
+    </div>
+  </div>
+  <div>
+    <p style="font-size: larger;">@CENG 2022 LMS COPYRIGHT</p>
+  </div>
+</body>
+
+</html>
